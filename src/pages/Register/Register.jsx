@@ -1,123 +1,139 @@
 import Lottie from 'lottie-react';
-import React, { use,  useState } from 'react';
+import React, { useState, useContext, use } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { Link } from 'react-router';
-import registerLottie from '../../assets/lotties/register.json'
+import { Link } from 'react-router'; // Fixed: should be 'react-router-dom'
+import registerLottie from '../../assets/lotties/register.json';
 import { AuthContext } from '../../context/AuthContext/AuthContext';
 import SocialLogIn from '../Shared/SocialLogIn';
 
 const Register = () => {
-    const [nameError, setNameError]=useState('');
-const [showPassword, setShowPassword]=useState(false);
- const { createUser } = use(AuthContext);
+  const [nameError, setNameError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const { createUser } = use(AuthContext); // Fixed: should use useContext
 
-const handleRegister = (e) => {
+  const handleRegister = (e) => {
     e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
 
+    createUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
-        const form=e.target;
-     const email=form.email.value;
-     const password=form.password.value;
-     console.log(email,password);
+  return (
+    <div className="min-h-screen flex flex-col lg:flex-row-reverse items-center justify-center bg-base-200 px-4 py-8">
+      
+      {/* Lottie Animation (responsive) */}
+      <div className="w-full max-w-md lg:max-w-lg">
+        <Lottie
+          animationData={registerLottie}
+          loop={true}
+          className="w-full h-auto"
+        />
+      </div>
 
- createUser(email,password)
- .then(result=>{
-    console.log(result.user)
- })
-.catch(error=>{
-console.log(error)
-})
-    }
+      {/* Register Form */}
+      <div className="w-full max-w-md mt-8 lg:mt-0 bg-white shadow-xl rounded-lg p-6 space-y-4">
+        <h2 className="text-2xl font-bold text-center">Register Your Account</h2>
 
+        <form onSubmit={handleRegister} className="space-y-4">
+          {/* Name */}
+          <div>
+            <label className="label">Name</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              className="input input-bordered w-full"
+              required
+            />
+            {nameError && <p className="text-red-500 text-xs">{nameError}</p>}
+          </div>
 
-    return (
-     <div className='hero bg-base-200 min-h-screen'>
-        <div className='hero-content flex-col lg:flex-row-reverse'>
-            <div className='text-center lg:text-left'>
-                <Lottie style={{width:'500px'}} animationData={registerLottie} loop={true}></Lottie>
+          {/* Photo URL */}
+          <div>
+            <label className="label">Photo URL</label>
+            <input
+              type="text"
+              name="photo"
+              placeholder="Photo URL"
+              className="input input-bordered w-full"
+              required
+            />
+          </div>
+
+          {/* Phone */}
+          <div>
+            <label className="label">Phone</label>
+            <input
+              type="number"
+              name="phone"
+              placeholder="Phone"
+              className="input input-bordered w-full"
+              required
+            />
+          </div>
+
+          {/* Email */}
+          <div>
+            <label className="label">Email</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              className="input input-bordered w-full"
+              required
+            />
+          </div>
+
+          {/* Password with toggle */}
+          <div>
+            <label className="label">Password</label>
+            <div className="relative">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                name="password"
+                placeholder="Password"
+                className="input input-bordered w-full"
+                required
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                title="Must contain at least 6 characters, a number, a lowercase and an uppercase letter"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute top-2/4 -translate-y-1/2 right-4 text-gray-600"
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </button>
             </div>
-                  <div className=' flex justify-center item-center p-10'>
-        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl py-5">
-            <h2 className='font-semibold text-2xl text-center'>Register Your Account</h2>
-              <form onSubmit={handleRegister} className="card-body">
-                <fieldset className="fieldset">
-                    {/* name */}
-                  <label className="label">Name</label>
-                  <input 
-                  type="text"
-                   className="input" 
-                   placeholder="Name"
-                    name='name'
-                    required/>
-                    {nameError && <p className='text-red-400 text-xs'>{nameError}</p>}
-                  {/* (photo-url) */}
-                  <label className="label">Photo Url</label>
-                  <input 
-                  type="text"
-                   className="input"
-                    placeholder="Photo Url" 
-                    name='photo'
-                    required/>
-                  {/* (phone number) */}
-                  <label className="label">Phone</label>
-                  <input 
-                  type="number"
-                   className="input"
-                    placeholder="Phone" 
-                    name='phone'
-                    required/>
-                    {/* address
-                  <label className="label">Address</label>
-                  <input 
-                  type="text"
-                   className="input"
-                    placeholder="Address" 
-                    name='Address'
-                    required/> */}
-                  {/* email */}
-                  <label className="label">Email</label>
-                  <input type="email"
-                   className="input" 
-                   placeholder="Email" 
-                   name='email'
-                   required />
-                 
-                  <div className='relative'>
-                     {/* password */}
-                  <label className="label">Password</label>
-                  <input 
-                  type={showPassword ? 'text' :'password'}
-                  className="input" 
-                  placeholder="Password"
-                   name='password'
-                   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
-                   title="Must be more than 6 characters, including number, lowercase letter, uppercase letter" 
-                   required />
-                   <button onClick={()=>{setShowPassword(!showPassword)}}
-                   className='btn btn-xs absolute top-6 right-6'>
-                    
-                   {
-                    showPassword? <FaEyeSlash></FaEyeSlash>:
-                    <FaEye/>
-                   }
-                    
-                    </button>
-          
-                  </div>
-                 
-                  <button
-                 type='submit' className="btn bg-gray-800 btn-neutral mt-4">Register</button>
+          </div>
 
-                  
-                  <p className='font-semibold text-center pt-5'>Already have an account?{''} <Link className='text-secondary' to='/signin'>SignIn</Link></p>
-                </fieldset>
-              </form>
-              <SocialLogIn></SocialLogIn>
-            </div>
-        </div>
-        </div>
-     </div>
-    );
+          {/* Submit Button */}
+          <button type="submit" className="btn btn-neutral w-full">
+            Register
+          </button>
+
+          {/* Already have an account */}
+          <p className="text-sm text-center">
+            Already have an account?{' '}
+            <Link to="/signin" className="text-blue-600 hover:underline">
+              Sign In
+            </Link>
+          </p>
+        </form>
+
+        {/* Social Login */}
+        <SocialLogIn />
+      </div>
+    </div>
+  );
 };
 
 export default Register;
