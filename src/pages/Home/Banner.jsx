@@ -13,13 +13,13 @@ const Banner = () => {
       src={tree1}
       animate={{y:[50,100,50]}}
       transition={{duration:5, repeat:Infinity}}
-      className="max-w-sm w-full sm:40px border-blue-800 border-s-6 border-b-6 rounded-t-[40px]  rounded-br-[40px] shadow-2xl"
+      className="max-w-sm w-full sm:40px border-green-800 border-s-6 border-b-6 rounded-t-[40px]  rounded-br-[40px] shadow-2xl"
     />
          <motion.img
       src={tree2}
       animate={{x:[50,100,50]}}
       transition={{duration: 10, delay:5, repeat:Infinity}}
-      className="w-full sm:40px max-w-sm border-blue-800 border-s-6 border-b-6 rounded-t-[40px]  rounded-br-[40px] shadow-2xl"
+      className="w-full sm:40px max-w-sm border-green-800 border-s-6 border-b-6 rounded-t-[40px]  rounded-br-[40px] shadow-2xl"
     />
  </div>
     <div className='flex-1'>
