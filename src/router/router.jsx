@@ -10,6 +10,8 @@ import UpEvents from "../pages/UpcomingEvents/UpEvents";
 import Loading from "../Components/Loading";
 import PrivateRoute from "../context/PrivateRoute";
 import ViewDetails from "../Components/ViewDetails";
+import JoinEvents from "../pages/JoinEvents/JoinEvents";
+import UpdateEvents from "../Components/UpdateEvents";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +35,12 @@ const router = createBrowserRouter([
             element:<PrivateRoute><CreateEvents></CreateEvents></PrivateRoute>
         },
         {
+            path:'/updateEvents/:id',
+            loader:({params})=>fetch(`http://localhost:3000/events/${params.id}`),
+            element:<PrivateRoute><UpdateEvents></UpdateEvents></PrivateRoute>,
+            hydrateFallbackElement:<Loading></Loading>
+        },
+        {
             path:'/upEvents',
             loader:()=>fetch('http://localhost:3000/events'),
             Component:UpEvents,
@@ -43,6 +51,12 @@ const router = createBrowserRouter([
             path:'/events/:id',
           element:<PrivateRoute>
             <ViewDetails></ViewDetails>
+          </PrivateRoute>
+        },
+        {
+            path:'/joinEvents',
+          element:<PrivateRoute>
+            <JoinEvents></JoinEvents>
           </PrivateRoute>
         },
     ]

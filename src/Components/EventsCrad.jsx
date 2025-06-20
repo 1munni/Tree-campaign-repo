@@ -7,6 +7,8 @@ const EventsCard = ({ events }) => {
 
   const handleViewDetails = () => {
     navigate(`/events/${_id}`);  };
+  const handleUpdate = () => {
+    navigate(`/updateEvents/${_id}`);  };
 
   return (
     <div className="card lg:card-side bg-white shadow-xl rounded-2xl overflow-hidden transition-transform hover:scale-[1.02] hover:shadow-2xl duration-300">
@@ -35,11 +37,13 @@ const EventsCard = ({ events }) => {
           </p>
         </div>
 
-        <div className="card-actions justify-end mt-6">
-          <button className="btn btn-primary rounded-full px-6"
+        <div className="card-actions justify-end items-center mt-6 flex">
+          <button className="btn btn-primary rounded-full px-4"
           onClick={handleViewDetails}
-          
-          >View Details</button>
+          >View</button>
+          <button className="btn btn-primary rounded-full px-4"
+          onClick={handleUpdate}
+          >Update</button>
         </div>
       </div>
     </div>

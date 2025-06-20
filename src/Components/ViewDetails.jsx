@@ -20,27 +20,27 @@ const ViewDetails = () => {
       });
   }, [id]);
 
-  const handleJoin = () => {
-    const joinedData = {
-      eventId: event._id,
-      title: event.title,
-      userId: 'sample-user-id',
-      joinedAt: new Date()
-    };
+//   const handleJoin = () => {
+//     const joinedData = {
+//       eventId: event._id,
+//       title: event.title,
+//       userId: 'sample-user-id',
+//       joinedAt: new Date()
+//     };
 
-    fetch('http://localhost:3000/joined-events', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(joinedData)
-    })
-      .then(res => res.json())
-      .then(() => {
-        alert('You successfully joined the event!');
-      })
-      .catch(() => {
-        alert('Failed to join the event.');
-      });
-  };
+//     fetch('http://localhost:3000/joined-events', {
+//       method: 'POST',
+//       headers: { 'Content-Type': 'application/json' },
+//       body: JSON.stringify(joinedData)
+//     })
+//       .then(res => res.json())
+//       .then(() => {
+//         alert('You successfully joined the event!');
+//       })
+//       .catch(() => {
+//         alert('Failed to join the event.');
+//       });
+//   };
 
   if (loading) {
     return <p className="text-center text-gray-600 mt-10">Loading...</p>;
