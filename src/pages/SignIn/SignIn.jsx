@@ -3,12 +3,17 @@ import { AuthContext } from '../../context/AuthContext/AuthContext';
 import signInLottie from '../../assets/lotties/signIn (2).json';
 import Lottie from 'lottie-react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import SocialLogIn from '../Shared/SocialLogIn';
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { signInUser } = use(AuthContext);
+   const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || '/';
+
 
   const handleSignIn = (e) => {
     e.preventDefault();
@@ -20,6 +25,7 @@ const SignIn = () => {
     signInUser(email, password)
       .then((result) => {
         console.log(result.user);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error);
