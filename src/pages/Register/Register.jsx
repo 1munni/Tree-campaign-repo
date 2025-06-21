@@ -5,6 +5,7 @@ import { Link } from 'react-router'; // Fixed: should be 'react-router-dom'
 import registerLottie from '../../assets/lotties/register.json';
 import { AuthContext } from '../../context/AuthContext/AuthContext';
 import SocialLogIn from '../Shared/SocialLogIn';
+import Swal from 'sweetalert2';
 
 const Register = () => {
   const [nameError, setNameError] = useState('');
@@ -14,12 +15,36 @@ const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
-    const email = form.email.value;
-    const password = form.password.value;
+    const formData=new FormData(form);
 
+    const {email,password, ...userProfile}=Object.fromEntries(formData.entries());
+    console.log(email,password,userProfile);
+
+    //crete user in firebase
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
+
+        //save user info to database
+        fetch('http://localhost:3000/users',{
+          method:'POST',
+          headers:{
+            'content-type':'application/json'
+          },
+          body:JSON.stringify(userProfile)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+          if(data.insertedId){
+            Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "your profile created successfully",
+                    showConfirmButton: false,
+                    timer: 1500,
+                  });
+          }
+        })
       })
       .catch((error) => {
         console.log(error);

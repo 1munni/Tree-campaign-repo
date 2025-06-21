@@ -23,20 +23,41 @@ console.log('signed out user')
         >
           Home
         </NavLink></li>
+
         <li>   <NavLink
+          className={({ isActive }) => (isActive ? 'text-indigo-500' : '')}
+          to='/upEvents'
+        >Upcoming Events
+        </NavLink></li>
+
+
+        <li>
+          <NavLink>Profile</NavLink>
+          <ul className="p-2">
+                <li>   <NavLink
           className={({ isActive }) => (isActive ? 'text-indigo-500' : '')}
           to='/createEvents'
         >
           Create Event
         </NavLink></li>
-        <li>   <NavLink
+             <li>   <NavLink
           className={({ isActive }) => (isActive ? 'text-indigo-500' : '')}
-          to='/upEvents'
+          to='/manageEvents'
         >
-          Upcoming Events
+          Manage Event
         </NavLink></li>
+             <li>   <NavLink
+          className={({ isActive }) => (isActive ? 'text-indigo-500' : '')}
+          to='/joinEvents'
+        >
+          Join Event
+        </NavLink></li>
+          </ul>
+        </li>
 
     </>
+
+
     return (
      <div className="navbar bg-base-100 shadow-sm">
   <div className="navbar-start">
