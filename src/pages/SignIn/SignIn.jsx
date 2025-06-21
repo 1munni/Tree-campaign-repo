@@ -111,7 +111,7 @@ console.log('after update patch', data)
               </fieldset>
             </form>
 
-            <SocialLogIn />
+            <SocialLogIn from={from} />
           </div>
         </div>
       </div>

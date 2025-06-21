@@ -14,6 +14,7 @@ import JoinEvents from "../pages/JoinEvents/JoinEvents";
 import UpdateEvents from "../Components/UpdateEvents";
 import ManageEvents from "../pages/ManageEvents/ManageEvents";
 import User from "../Components/User";
+import Profile from "../Components/Profile";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
         {
             path:'/signIn',
             Component:SignIn
+        },
+        {
+            path:'/profile',
+            Component:Profile
         },
         {
             path:'/users',
@@ -68,7 +73,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         },
         {
-            path:'/joinEvents',
+            path:'/joinEvents/:id',
           element:<PrivateRoute>
             <JoinEvents></JoinEvents>
           </PrivateRoute>

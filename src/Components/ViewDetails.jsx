@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { Link, Navigate, useParams } from 'react-router';
 
 const ViewDetails = () => {
+  
   const { id } = useParams();
   const [event, setEvent] = useState(null);
   const [loading, setLoading] = useState(true);
+  
 
   useEffect(() => {
     fetch('http://localhost:3000/events')
@@ -19,28 +21,6 @@ const ViewDetails = () => {
         setLoading(false);
       });
   }, [id]);
-
-//   const handleJoin = () => {
-//     const joinedData = {
-//       eventId: event._id,
-//       title: event.title,
-//       userId: 'sample-user-id',
-//       joinedAt: new Date()
-//     };
-
-//     fetch('http://localhost:3000/joined-events', {
-//       method: 'POST',
-//       headers: { 'Content-Type': 'application/json' },
-//       body: JSON.stringify(joinedData)
-//     })
-//       .then(res => res.json())
-//       .then(() => {
-//         alert('You successfully joined the event!');
-//       })
-//       .catch(() => {
-//         alert('Failed to join the event.');
-//       });
-//   };
 
   if (loading) {
     return <p className="text-center text-gray-600 mt-10">Loading...</p>;
@@ -75,12 +55,13 @@ const ViewDetails = () => {
           )}
         </ul>
 
+    <Link to={`/joinEvents/${id}`}>
         <button
-          onClick={handleJoin}
           className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-full transition"
         >
           Join Event
         </button>
+    </Link>
       </div>
     </div>
   );
