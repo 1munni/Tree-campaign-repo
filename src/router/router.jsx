@@ -13,6 +13,7 @@ import ViewDetails from "../Components/ViewDetails";
 import JoinEvents from "../pages/JoinEvents/JoinEvents";
 import UpdateEvents from "../Components/UpdateEvents";
 import ManageEvents from "../pages/ManageEvents/ManageEvents";
+import User from "../Components/User";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,12 @@ const router = createBrowserRouter([
         {
             path:'/signIn',
             Component:SignIn
+        },
+        {
+            path:'/users',
+            loader:()=>fetch('http://localhost:3000/users'),
+            Component:User,
+            hydrateFallbackElement:<Loading></Loading>
         },
         {
             path:'/createEvents',
