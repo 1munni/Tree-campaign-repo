@@ -25,6 +25,7 @@ const Navbar = () => {
         <Link to="/" className="text-2xl font-bold text-white">
           Planty
         </Link>
+        
 
         {/* Mobile Menu Button */}
         <button
