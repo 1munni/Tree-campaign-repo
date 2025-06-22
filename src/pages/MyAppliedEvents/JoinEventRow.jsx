@@ -1,7 +1,7 @@
 import React from 'react';
 
 const JoinEventRow = ({application,index}) => {
-    const{applicant,name,phone,role,reason,date}=application;
+    const{applicant,thumbnailUrl,role,reason,date,eventType}=application;
     return (
             <tr>
         <th>
@@ -14,13 +14,13 @@ const JoinEventRow = ({application,index}) => {
             <div className="avatar">
               <div className="mask mask-squircle h-12 w-12">
                 <img
-                  src="https://img.daisyui.com/images/profile/demo/2@94.webp"
+                  src={thumbnailUrl}
                   alt="Avatar Tailwind CSS Component" />
               </div>
             </div>
             <div>
-              <div className="font-bold">{name}</div>
-              <div className="text-sm opacity-50">{phone}</div>
+              <div className="font-bold">{eventType}</div>
+              <div className="text-sm opacity-50">{applicant}</div>
             </div>
           </div>
         </td>

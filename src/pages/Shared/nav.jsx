@@ -47,12 +47,14 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li className="relative group">
+           <Link to='/profile'>
             <button
               onClick={() => setProfileOpen(!profileOpen)}
               className="hover:text-yellow-400"
             >
               Profile ▾
             </button>
+           </Link>
             <ul className={`absolute mt-2 left-0 bg-gray-700 rounded-md shadow-md w-40 ${profileOpen ? 'block' : 'hidden'} group-hover:block`}>
               <li>
                 <NavLink to="/createEvents" className="block px-4 py-2 hover:bg-gray-600">
