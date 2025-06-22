@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 
 const CreateEvents = () => {
-  const { currentUser } = use(AuthContext);
+  const { user } = use(AuthContext);
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -43,8 +43,8 @@ const CreateEvents = () => {
 
   const eventData = {
     ...formData,
-    date: formData.date.toISOString(), // Convert Date object to string
-    createdBy: currentUser?.email || 'unknown',
+    date: formData.date.toISOString(), 
+    createdBy: user?.email || 'unknown',
   };
 
   try {

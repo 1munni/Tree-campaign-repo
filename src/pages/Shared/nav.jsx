@@ -65,7 +65,7 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/joinEvents/:id" className="block px-4 py-2 hover:bg-gray-600">
+                <NavLink to="/myAppliedEvents" className="block px-4 py-2 hover:bg-gray-600">
                   Join Events
                 </NavLink>
               </li>
@@ -126,7 +126,7 @@ const Navbar = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/joinEvents" className="block hover:text-yellow-400" onClick={() => setMobileMenuOpen(false)}>
+                  <NavLink to="/myAppliedEvents" className="block hover:text-yellow-400" onClick={() => setMobileMenuOpen(false)}>
                     Join Events
                   </NavLink>
                 </li>

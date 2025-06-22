@@ -22,21 +22,22 @@ const ManageEvents = () => {
     );
   }
 
-  // 3) Filter events by user’s email
+  // 3) Filter events by logged-in user's email (case-insensitive)
   const myEvents = Array.isArray(allEvents)
-    ? allEvents.filter(event => event.creatorEmail === user.email)
-    : [];
+  ? allEvents.filter(event => event.
+createdBy === user.email)
+  : [];
 
   // 4) Empty state
   if (myEvents.length === 0) {
     return (
-      <div className="text-center mt-10">
+      <div className="text-center mt-10 text-gray-600">
         You haven’t created any events yet.
       </div>
     );
   }
 
-  // 5) Render grid
+  // 5) Render grid of user-created events
   return (
     <div className="py-10 max-w-7xl mx-auto">
       <h2 className="text-3xl font-semibold mb-6 text-center">
@@ -47,7 +48,7 @@ const ManageEvents = () => {
           <EventsCard
             key={event._id}
             events={event}
-            showActions={true} // Optional prop if needed
+            showActions={true}
           />
         ))}
       </div>

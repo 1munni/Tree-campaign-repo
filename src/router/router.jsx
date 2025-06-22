@@ -15,6 +15,7 @@ import UpdateEvents from "../Components/UpdateEvents";
 import ManageEvents from "../pages/ManageEvents/ManageEvents";
 import User from "../Components/User";
 import Profile from "../Components/Profile";
+import MyAppliedEvents from "../pages/MyAppliedEvents/MyAppliedEvents";
 
 const router = createBrowserRouter([
   {
@@ -76,6 +77,12 @@ const router = createBrowserRouter([
             path:'/joinEvents/:id',
           element:<PrivateRoute>
             <JoinEvents></JoinEvents>
+          </PrivateRoute>
+        },
+        {
+            path:'/myAppliedEvents',
+          element:<PrivateRoute>
+           <MyAppliedEvents></MyAppliedEvents>
           </PrivateRoute>
         },
     ]
