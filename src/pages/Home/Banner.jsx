@@ -8,18 +8,18 @@ const Banner = () => {
     return (
       <div className="hero bg-base-200 min-h-96">
   <div className="hero-content flex-col lg:flex-row">
- <div className='flex-1'>
+ <div className='flex-1 max-w-screen overflow-hidden '>
        <motion.img
       src={tree1}
       animate={{y:[50,100,50]}}
       transition={{duration:5, repeat:Infinity}}
-      className="max-w-sm w-full sm:40px border-green-800 border-s-6 border-b-6 rounded-t-[40px]  rounded-br-[40px] shadow-2xl"
+      className="max-w-sm w-3/4 lg:w-full sm:40px border-green-800 border-s-6 border-b-6 rounded-t-[40px]  rounded-br-[40px] shadow-2xl"
     />
          <motion.img
       src={tree2}
       animate={{x:[50,100,50]}}
       transition={{duration: 10, delay:5, repeat:Infinity}}
-      className="w-full sm:40px max-w-sm border-green-800 border-s-6 border-b-6 rounded-t-[40px]  rounded-br-[40px] shadow-2xl"
+      className="w-3/4 lg:w-full sm:40px max-w-sm border-green-800 border-s-6 border-b-6 rounded-t-[40px]  rounded-br-[40px] shadow-2xl"
     />
  </div>
     <div className='flex-1'>
