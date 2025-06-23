@@ -16,6 +16,7 @@ import ManageEvents from "../pages/ManageEvents/ManageEvents";
 import User from "../Components/User";
 import Profile from "../Components/Profile";
 import MyAppliedEvents from "../pages/MyAppliedEvents/MyAppliedEvents";
+import ErrorPage from "../Components/Error";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
             path:'/signIn',
             Component:SignIn
         },
+         {
+        path:'/*',
+        Component:ErrorPage
+      },
         {
             path:'/profile',
             Component:Profile
