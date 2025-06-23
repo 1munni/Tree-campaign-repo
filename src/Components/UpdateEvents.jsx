@@ -30,7 +30,7 @@ const UpdateEvents = () => {
   console.log(updatedEvents);
 
   //send updated events
-  fetch(`http://localhost:3000/events/${_id}`,{
+  fetch(`https://my-assignment-11-server-xi.vercel.app/events/${_id}`,{
     method:'PUT',
     headers:{
         'content-type':'application/json'

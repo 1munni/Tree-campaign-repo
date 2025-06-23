@@ -29,7 +29,7 @@ const handleJoinEventSubmit=e=>{
         date,
         reason,
     }
-    axios.post('http://localhost:3000/applications',application)
+    axios.post('https://my-assignment-11-server-xi.vercel.app/applications',application)
     .then(res=>{
         console.log(res.data)
         if(res.data.insertedId){

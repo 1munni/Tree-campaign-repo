@@ -9,7 +9,7 @@ const ViewDetails = () => {
   
 
   useEffect(() => {
-    fetch('http://localhost:3000/events')
+    fetch('https://my-assignment-11-server-xi.vercel.app/events')
       .then(res => res.json())
       .then(data => {
         const selectedEvent = data.find(item => item._id === id);

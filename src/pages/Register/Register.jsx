@@ -36,7 +36,7 @@ const Register = () => {
     console.log(email,password,userProfile);
 
         //save user info to database
-        fetch('http://localhost:3000/users',{
+        fetch('https://my-assignment-11-server-xi.vercel.app/users',{
           method:'POST',
           headers:{
             'content-type':'application/json'

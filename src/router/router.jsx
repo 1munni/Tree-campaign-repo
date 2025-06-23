@@ -45,7 +45,7 @@ const router = createBrowserRouter([
         },
         {
             path:'/users',
-            loader:()=>fetch('http://localhost:3000/users'),
+            loader:()=>fetch('https://my-assignment-11-server-xi.vercel.app/users'),
             Component:User,
             hydrateFallbackElement:<Loading></Loading>
         },
@@ -55,13 +55,13 @@ const router = createBrowserRouter([
         },
         {
             path:'/updateEvents/:id',
-            loader:({params})=>fetch(`http://localhost:3000/events/${params.id}`),
+            loader:({params})=>fetch(`https://my-assignment-11-server-xi.vercel.app/events/${params.id}`),
             element:<PrivateRoute><UpdateEvents></UpdateEvents></PrivateRoute>,
             hydrateFallbackElement:<Loading></Loading>
         },
         {
             path:'/upEvents',
-            loader:()=>fetch('http://localhost:3000/events'),
+            loader:()=>fetch('https://my-assignment-11-server-xi.vercel.app/events'),
             Component:UpEvents,
             hydrateFallbackElement:<Loading></Loading>
 
