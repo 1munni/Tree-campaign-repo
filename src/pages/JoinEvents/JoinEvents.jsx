@@ -49,7 +49,7 @@ const handleJoinEventSubmit=e=>{
 }
     
     return (
-        <div className='p-20'>
+        <div className='p-20 '>
             <h2 className='font-bold text-3xl pb-10'>Join event:<Link to={`/events/${joinEventId}`}>Details</Link></h2>
  <form onSubmit={handleJoinEventSubmit}>
          <fieldset className="bg-base-200 border-base-300 rounded-box w-xs border space-y-4">

@@ -27,7 +27,7 @@ const RootLayout = () => {
       </main>
 
       {/* Footer */}
-      <footer className=" mx-auto px-4 py-6">
+      <footer className="">
         <Footer />
       </footer>
     </div>
