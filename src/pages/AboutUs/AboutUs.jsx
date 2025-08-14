@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 
 const AboutUs = () => {
   return (
-    <section className="bg-gray-50 dark:bg-gray-900 py-16 md:py-24 transition-colors duration-300 rounded-3xl">
+    <section className="bg-gray-50 dark:bg-gray-900 py-16 md:py-16 transition-colors duration-300 rounded-3xl mb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Hero Section */}
