@@ -12,7 +12,7 @@ const AboutUs = () => {
           <p className="text-lg font-semibold text-green-600 dark:text-green-400 uppercase tracking-wider">
             Our Story, Our Mission
           </p>
-          <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
+          <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
             Nurturing a Greener Planet
           </h1>
           <p className="mt-4 text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
