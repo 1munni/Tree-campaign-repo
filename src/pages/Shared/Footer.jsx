@@ -12,7 +12,7 @@ const Footer = () => {
           <div className="flex flex-col items-start space-y-4">
             <div className="flex items-center space-x-3">
               <FaSeedling className="text-green-600 dark:text-green-400 text-3xl" />
-              <span className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Planty</span>
+              <span className="text-3xl font-bold tracking-tight text-green-600 dark:text-white">Planty</span>
             </div>
             <p className="text-sm">
               Nurturing a greener planet, one tree at a time.
