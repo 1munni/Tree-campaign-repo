@@ -38,7 +38,7 @@ const Register = () => {
               Swal.fire({
                 position: "top-end",
                 icon: "success",
-                title: "Your profile was created successfully",
+                title: "Congratulation Your profile was created successfully!",
                 showConfirmButton: false,
                 timer: 1500,
               });
