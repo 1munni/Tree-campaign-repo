@@ -2,11 +2,12 @@ import React from 'react';
 import { motion } from "motion/react"
 import tree1 from '../../assets/tree/6418665.jpg'
 import tree2 from '../../assets/tree/8917368.jpg'
+import { Link } from 'react-router';
 
 
 const Banner = () => {
     return (
-      <div className="hero bg-base-200 min-h-96">
+      <div className="hero bg-base-200 min-h-96 rounded-2xl mb-10">
   <div className="hero-content flex-col lg:flex-row">
  <div className='flex-1 max-w-screen overflow-hidden '>
        <motion.img
@@ -36,7 +37,10 @@ const Banner = () => {
       <p className="py-6  sm:text-sm lg:text-lg">
         Safe Global Earth & Explore How Our Tree Planting Efforts Contribute to A Safe world!
       </p>
-      <button className="btn btn-primary">Get Started</button>
+      {/* <button className="btn btn-primary">Get Started</button> */}
+      <Link to="/upEvents" className="btn btn-primary bg-green-600 hover:bg-green-400 text-white font-bold py-3 px-8 rounded-full transition duration-300">
+                           Let's explore!
+                        </Link>
     </div>
   </div>
 </div>

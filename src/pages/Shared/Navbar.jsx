@@ -1,7 +1,11 @@
+// it's a extra page dont' make any change here or any update wont' work here
+
 import React, { use } from 'react';
 import { NavLink } from 'react-router'
 import { AuthContext } from '../../context/AuthContext/AuthContext';
 import { FaUserCircle } from 'react-icons/fa';
+import ThemeToggle from '../../context/ThemeContext/ThemeToggle';
+
 
 const Navbar = () => {
   const { user, signOutUser } = use(AuthContext);
@@ -17,7 +21,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+<div className="navbar max-w-6xl mx-auto px-4 bg-white">
+
       {/* START */}
       <div className="navbar-start">
         <div className="dropdown">
@@ -91,7 +96,7 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a className="btn btn-ghost text-xl">Planty</a>
       </div>
 
       {/* CENTER */}
@@ -148,7 +153,8 @@ const Navbar = () => {
       </div>
 
       {/* END */}
-      <div className="navbar-end">
+      {/* <div className="navbar-end">
+       
         {user ? (
           <div className="flex items-center gap-4">
             <span className="font-bold shadow hidden lg:inline">{user.email}</span>
@@ -172,7 +178,35 @@ const Navbar = () => {
             </NavLink>
           </div>
         )}
-      </div>
+      </div> */}
+      <div className="navbar-end flex items-center gap-4">
+  {user ? (
+    <>
+      <span className="font-bold shadow hidden lg:inline">{user.email}</span>
+      <img
+        className="w-8 h-8 rounded-full"
+        src={user.photoURL || FaUserCircle}
+        alt="User avatar"
+        title={user.displayName || 'No Name'}
+      />
+      <button className="btn" onClick={handleSignOut}>
+        Sign Out
+      </button>
+      <ThemeToggle />  {/* Add toggle here */}
+    </>
+  ) : (
+    <>
+      <NavLink className="btn" to="/register">
+        Register
+      </NavLink>
+      <NavLink className="btn" to="/signIn">
+        Sign In
+      </NavLink>
+      <ThemeToggle /> {/* Add toggle here */}
+    </>
+  )}
+</div>
+
     </div>
   );
 };

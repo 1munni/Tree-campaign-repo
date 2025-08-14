@@ -17,6 +17,7 @@ import User from "../Components/User";
 import Profile from "../Components/Profile";
 import MyAppliedEvents from "../pages/MyAppliedEvents/MyAppliedEvents";
 import ErrorPage from "../Components/Error";
+import AboutUs from "../pages/AboutUs/AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
          {
         path:'/*',
         Component:ErrorPage
+      },
+         {
+        path:'/aboutUs',
+        Component:AboutUs
       },
         {
             path:'/profile',

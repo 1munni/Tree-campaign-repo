@@ -8,7 +8,7 @@ import { div } from 'motion/react-client';
 
 const Gellary = () => {
     return (
-<div className='pb-20'>
+<div className='mb-20'>
   <div className="container mx-auto p-4 my-6 space-y-2 text-center">
     <h2 className="text-5xl font-bold">Explore our happiness!</h2>
   </div>

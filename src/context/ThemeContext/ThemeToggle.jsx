@@ -6,7 +6,7 @@ const ThemeToggle = () => {
     return (
        <>
    
-        <div className=' mt-5'>
+        <div className=''>
             <DarkModeToggoler></DarkModeToggoler>
         </div>
      
